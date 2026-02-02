@@ -1,10 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Degree Apprenticeships | Leeds Beckett University</title>
+  <meta name="description" content="Advance your career with Degree Apprenticeships at Leeds Beckett University — learn on the job, earn a salary, and gain a degree. Courses for learners and employer partnerships." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Minimal in-file styles to make markup presentable until you add a stylesheet */
+    :root { --accent:#0055A4; --muted:#666; --bg:#f8f9fb; --container:1100px; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#222; }
+    body{margin:0;background:var(--bg);line-height:1.45}
+    .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
+    .container{max-width:var(--container);margin:0 auto;padding:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{height:48px;width:auto}
+    nav{margin-left:auto}
+    .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none}
+    .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
+    .hero .hero-copy{flex:1}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem)}
+    .hero p.lead{color:var(--muted);margin:0 0 1rem}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .cta-row{display:flex;gap:.75rem;align-items:center}
+    .how-it-works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .testimonials{background:#fff;padding:1.25rem;border-radius:8px}
+    footer{background:#002b5c;color:#fff;padding:1.5rem 0;margin-top:2rem}
+    .muted{color:var(--muted)}
+    form input,form textarea,form select{width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px}
+    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
+  <header class="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;gap:1rem">
+      <div class="brand" aria-label="Leeds Beckett University brand">
+        <img src="images/lbu-logo-placeholder.png" alt="Leeds Beckett University logo (placeholder)" />
+        <div>
+          <strong>Leeds Beckett University</strong><br /><small class="muted">Degree Apprenticeships</small>
+        </div>
+      </div>
 
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#apprenticeships">Apprenticeships</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#employers">For employers</a></li>
+          <li><a href="#contact" class="button">Enquire now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" role="main">
+      <div class="hero-copy">
+        <h1>Advance your career with Degree Apprenticeships</h1>
+        <p class="lead">Combine paid work with university study to gain a full degree while earning — supported by experienced tutors and industry partners.</p>
+        <div class="cta-row">
+          <a href="#apprenticeships" class="button" aria-label="Find a course">Find a course</a>
+          <a href="#contact" class="muted" style="text-decoration:underline">Request information</a>
+        </div>
+
+        <p style="margin-top:1rem" class="muted">Flexible entry routes for school leavers and existing employees. Funding and employer support available.</p>
+      </div>
+
+      <div style="flex:0 0 360px">
+        <div class="card" aria-hidden="false">
+          <h3 style="margin-top:0">Why choose Degree Apprenticeships?</h3>
+          <ul>
+            <li>Earn a salary while studying</li>
+            <li>Gain job-relevant skills and a recognised degree</li>
+            <li>Strong employer partnerships and professional accreditation pathways</li>
+          </ul>
+          <p style="margin:0.5rem 0 .25rem"><a href="#how-it-works">Learn how it works →</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="apprenticeships" style="padding-top:1.5rem">
+      <h2>Popular Degree Apprenticeships</h2>
+      <p class="muted">Explore apprenticeships that combine hands-on work with academic study. Below are examples — please check the full course catalogue for entry requirements and start dates.</p>
+
+      <div class="cards" style="margin-top:1rem">
+        <article class="card" aria-labelledby="course-digital">
+          <h3 id="course-digital">Digital and Technology Solutions</h3>
+          <p class="muted">Skills in software development, data and cloud technologies — designed with employers to meet digital demand.</p>
+          <p><a href="#" aria-label="More about Digital and Technology Solutions">More &raquo;</a></p>
+        </article>
+
+        <article class="card" aria-labelledby="course-management">
+          <h3 id="course-management">Chartered Manager Degree Apprenticeship</h3>
+          <p class="muted">Develop leadership and management capability while working in a managerial role — pathway to chartered status.</p>
+          <p><a href="#" aria-label="More about Chartered Manager">More &raquo;</a></p>
+        </article>
+
+        <article class="card" aria-labelledby="course-health">
+          <h3 id="course-health">Nursing and Health Apprenticeships</h3>
+          <p class="muted">Blend clinical practice with university teaching to achieve professional registration and a degree.</p>
+          <p><a href="#" aria-label="More about Nursing Apprenticeships">More &raquo;</a></p>
+        </article>
+
+        <article class="card" aria-labelledby="course-engineering">
+          <h3 id="course-engineering">Engineering and Construction</h3>
+          <p class="muted">Work on real projects with employers to gain technical skills and an accredited engineering degree.</p>
+          <p><a href="#" aria-label="More about Engineering Apprenticeships">More &raquo;</a></p>
+        </article>
+      </div>
+    </div>
+
+    <div class="container" id="how-it-works" style="padding-top:1.5rem">
+      <h2>How Degree Apprenticeships work</h2>
+      <div class="how-it-works" role="list">
+        <div class="card" role="listitem">
+          <h4>1. Apply or be nominated</h4>
+          <p class="muted">You can apply directly or be sponsored by your employer. We support both new apprentices and staff development routes.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>2. Study alongside work</h4>
+          <p class="muted">Study is delivered through blended learning — digital teaching, on-campus workshops and workplace assessment.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>3. Earn and achieve</h4>
+          <p class="muted">Apprentices remain employed and paid while completing degree-level modules and professional assessments.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h4>4. Career progression</h4>
+          <p class="muted">Graduates progress into higher-skilled roles, management or professional registration depending on the programme.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="employers" style="padding-top:1.5rem">
+      <h2>For employers</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Partner with Leeds Beckett to develop a skilled workforce tailored to your business. We work with employers of all sizes to design apprenticeship training, share assessment plans and support workplace mentors.</p>
+          <ul>
+            <li>Flexible delivery to fit business needs</li>
+            <li>Support with funding and levy transfers</li>
+            <li>Access to university research and facilities</li>
+          </ul>
+
+          <p><a href="#contact" class="button">Discuss partnerships</a></p>
+        </div>
+
+        <aside class="card testimonials" aria-labelledby="testimonials-heading">
+          <h3 id="testimonials-heading">What employers and apprentices say</h3>
+          <blockquote>
+            <p>"Our apprentice quickly became a key member of the team — the course content matched day-to-day work and supported professional development."</p>
+            <footer class="muted">— Employer partner, Leeds</footer>
+          </blockquote>
+
+          <blockquote style="margin-top:.75rem">
+            <p>"I earned while learning and could apply every module straight to my role. The university tutors were very supportive."</p>
+            <footer class="muted">— Degree Apprentice</footer>
+          </blockquote>
+        </aside>
+      </div>
+    </div>
+
+    <div class="container" id="contact" style="padding-top:1.5rem">
+      <h2>Request information or apply</h2>
+      <p class="muted">Fill in the form and our Degree Apprenticeships team will get back to you with tailored advice.</p>
+
+      <form action="/submit-enquiry" method="post" aria-label="Enquiry form" style="margin-top:1rem">
+        <div style="display:grid;gap:.75rem">
+          <label>
+            Full name
+            <input type="text" name="name" required placeholder="Your full name" />
+          </label>
+
+          <label>
+            Email address
+            <input type="email" name="email" required placeholder="you@example.com" />
+          </label>
+
+          <label>
+            Are you enquiring as an:
+            <select name="role" aria-label="Enquiring as">
+              <option value="learner">Learner</option>
+              <option value="employer">Employer</option>
+              <option value="adviser">Adviser</option>
+            </select>
+          </label>
+
+          <label>
+            Message
+            <textarea name="message" rows="5" placeholder="Tell us which apprenticeship or support you need"></textarea>
+          </label>
+
+          <div style="display:flex;gap:.5rem;align-items:center">
+            <button type="submit" class="button">Send enquiry</button>
+            <small class="muted">Or call: <strong>0113 812 3456</strong></small>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <strong>Leeds Beckett University</strong>
+        <p class="muted" style="max-width:36ch">Degree Apprenticeships team — supporting learners and employers across Yorkshire and beyond.</p>
+      </div>
+
+      <div style="min-width:220px">
+        <nav aria-label="Footer">
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
+            <li><a href="#" style="color:#fff;text-decoration:underline">Privacy & cookies</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Terms of use</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Accessibility</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
