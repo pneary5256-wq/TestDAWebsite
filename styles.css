@@ -4,11 +4,12 @@
   --trim-light: #ffffff;
   --trim-dark: #000000;
 
-  --muted: #6b7280;
-  --bg: #f6f8fb;
+  /* Make non-header/muted bits black and main background white */
+  --muted: #000000;
+  --bg: #ffffff;
   --container: 1100px;
   --radius: 8px;
-  --focus: 3px rgba(117,59,189,0.18);
+  --focus: 3px rgba(0,0,0,0.18);
   font-family: "Montserrat", "Helvetica Neue", Arial, system-ui, -apple-system;
 }
 
@@ -19,28 +20,42 @@
 html,body{height:100%}
 body{
   margin:0;
-  background:var(--bg);
-  color:#0b1220;
+  background:var(--bg); /* pure white main background */
+  color:var(--trim-dark); /* all other text black */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 .container{max-width:var(--container);margin:0 auto;padding:1rem}
 
-/* Header */
-.site-header{background:var(--trim-light);border-bottom:1px solid #e6e9ee}
+/* Header - use purple scheme */
+.site-header{
+  background:var(--brand-purple);
+  color:var(--trim-light);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
 .brand{display:flex;align-items:center;gap:.75rem}
 .brand img{height:52px;width:auto;display:block}
-.brand strong{font-weight:700}
+.brand strong{font-weight:700;color:var(--trim-light)}
 .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
-.nav-list a{color:var(--brand-purple);text-decoration:none;padding:.35rem .5rem;border-radius:6px}
-.nav-list a:hover{background:rgba(117,59,189,0.04)}
+.nav-list a{
+  color:var(--trim-light); /* white links in header */
+  text-decoration:none;padding:.35rem .5rem;border-radius:6px
+}
+.nav-list a:hover{background:rgba(255,255,255,0.06)}
 
-a.button{background:var(--brand-purple);color:var(--trim-light);padding:.6rem 1rem;border-radius:8px;text-decoration:none;display:inline-block}
+a.button{
+  background:var(--trim-dark); /* other bits black */
+  color:var(--trim-light);padding:.6rem 1rem;border-radius:8px;text-decoration:none;display:inline-block
+}
 a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 
 /* Hero */
 .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
-.hero-copy h1{font-size:clamp(1.6rem,2.6vw,2.6rem);margin:0 0 .5rem;font-family:"Montserrat",sans-serif;color:var(--brand-purple)}
+.hero-copy h1{
+  font-size:clamp(1.6rem,2.6vw,2.6rem);
+  margin:0 0 .5rem;font-family:"Montserrat",sans-serif;
+  color:var(--trim-dark); /* headings outside header are black */
+}
 .lead{color:var(--muted);margin:0 0 1rem}
 
 /* Cards */
@@ -52,7 +67,7 @@ a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 .how-it-works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
 
 /* Testimonials */
-.testimonials blockquote{margin:0;padding:0;border-left:4px solid var(--brand-purple);padding-left:1rem}
+.testimonials blockquote{margin:0;padding:0;border-left:4px solid var(--trim-dark);padding-left:1rem}
 .testimonials footer{font-size:.9rem;color:var(--muted)}
 
 /* Form */
@@ -82,4 +97,4 @@ h1,.card h3{letter-spacing:-0.01em}
 
 /* Make focus visible for keyboard users */
 :focus{outline:none}
-:focus-visible{outline:3px solid rgba(117,59,189,0.28);outline-offset:2px}
+:focus-visible{outline:3px solid rgba(0,0,0,0.28);outline-offset:2px}
