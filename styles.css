@@ -77,9 +77,11 @@ input[type="text"],input[type="email"],select,textarea{
 }
 input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 
-/* Footer */
-footer{background:var(--trim-dark);color:var(--trim-light);padding:1.5rem 0;margin-top:2rem}
-footer a{color:var(--trim-light)}
+footer{
+  background: var(--brand-purple); /* RGB(117,59,189) */
+  color: var(--trim-light);
+}
+
 
 /* Utilities */
 .muted{color:var(--muted)}
