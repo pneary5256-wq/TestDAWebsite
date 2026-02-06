@@ -10,11 +10,10 @@
   --container: 1100px;
   --radius: 8px;
   --focus: 3px rgba(0,0,0,0.18);
-  font-family: "Montserrat", "Helvetica Neue", Arial, system-ui, -apple-system;
+  font-family: "Segoe UI", sans-serif;
 }
 
-/* Google Fonts fallback: Montserrat for headings, system for body */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+/* Font imports */
 
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -53,7 +52,7 @@ a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
 .hero-copy h1{
   font-size:clamp(1.6rem,2.6vw,2.6rem);
-  margin:0 0 .5rem;font-family:"Montserrat",sans-serif;
+  margin:0 0 .5rem;font-family:"Segoe UI",sans-serif;
   color:var(--trim-dark); /* headings outside header are black */
 }
 .lead{color:var(--muted);margin:0 0 1rem}
