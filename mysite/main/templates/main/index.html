@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Degree Apprenticeships | Leeds Beckett University</title>
   <meta name="description" content="Advance your career with Degree Apprenticeships at Leeds Beckett University — learn on the job, earn a salary, and gain a degree. Courses for learners and employer partnerships." />
-<link rel="stylesheet" href="{% static 'main/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'main/styles.css' %}" />
   <style>
-    /* Minimal in-file styles to make markup presentable until you add a stylesheet */
     :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Segoe UI", sans-serif; color:#fcfcfc00; }
     body{margin:0;background:var(--bg);line-height:1.45}
     .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
@@ -114,7 +113,6 @@
           <p class="muted">Blend clinical practice with university teaching to achieve professional registration and a degree.</p>
           <p><a href="#" aria-label="More about Nursing Apprenticeships">More &raquo;</a></p>
         </article>
-
       </div>
     </div>
 
@@ -173,7 +171,8 @@
       <h2>Request information or apply</h2>
       <p class="muted">Fill in the form and our Degree Apprenticeships team will get back to you with tailored advice.</p>
 
-      <form action="/submit-enquiry" method="post" aria-label="Enquiry form" style="margin-top:1rem">
+      <form action="{% url 'submit-enquiry' %}" method="post" aria-label="Enquiry form" style="margin-top:1rem">
+        {% csrf_token %}
         <div style="display:grid;gap:.75rem">
           <label>
             Full name

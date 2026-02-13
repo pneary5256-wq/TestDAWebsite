@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),         # homepage
     path('', include('main.urls')),            # for submit-enquiry etc.
+    path('submit-enquiry/', views.submit_enquiry, name='submit-enquiry'),
 ]
