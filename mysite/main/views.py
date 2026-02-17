@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Enquiry  # we'll create this model
+from .models import Enquiry, School, Course  # we'll create this model
 from django.shortcuts import render
 
 def home(request):
-    return render(request, 'main/index.html')
+    schools = School.objects.all()
+    return render(request, 'main/index.html', {'schools': schools})
 
 def submit_enquiry(request):
     if request.method == "POST":
@@ -21,3 +22,8 @@ def submit_enquiry(request):
 
     # Optional: redirect if someone visits /submit-enquiry via GET
     return redirect("home")
+
+def school_detail(request, slug):
+    school = get_object_or_404(School, slug=slug)
+    courses = school.courses.all()
+    return render(request, 'main/school_detail.html', {'school': school, 'courses': courses})

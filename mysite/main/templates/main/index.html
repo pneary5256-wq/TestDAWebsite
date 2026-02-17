@@ -90,29 +90,15 @@
       <p class="muted">Explore apprenticeships that combine hands-on work with academic study. Below are examples — please check the full course catalogue for entry requirements and start dates.</p>
 
       <div class="cards" style="margin-top:1rem">
-        <article class="card" aria-labelledby="course-digital">
-          <img src="https://www.leedsbeckett.ac.uk/-/media/files/news/leedsbeckettcitutestcells-06.jpg?optimization=true&mw=500&hash=1B10B307DCEEF5C93FC9DEA432A5519E" alt="School of Built Environment, Engineering and Computing">
-          <h3 id="course-digital">School of Built Environment, Engineering and Computing</h3>
+        {% for school in schools %}
+        <article class="card" aria-labelledby="course-{{ school.slug }}">
+          <img src="{{ school.image_url }}" alt="{{ school.name }}">
+          <h3 id="course-{{ school.slug }}">{{ school.name }}</h3>
           <hr>
-          <p class="muted">Explore courses in Construction, Engineering, Town Planning and Computing</p>
-          <p><a href="#" aria-label="More about Digital and Technology Solutions">More &raquo;</a></p>
+          <p class="muted">{{ school.description }}</p>
+          <p><a href="{% url 'school_detail' school.slug %}" aria-label="More about {{ school.name }}">More &raquo;</a></p>
         </article>
-
-        <article class="card" aria-labelledby="course-management">
-          <img src="https://www.leedsbeckett.ac.uk/-/media/images/editorial/news/2023/january/olga-munroe2.jpg?optimization=true&mw=420&hash=6CD630F420257870BD7A0606BAD97104" alt="Leeds Business School">
-          <h3 id="course-management">Leeds Business School</h3>
-          <hr>
-          <p class="muted">Develop leadership and management capability while working in a managerial role.</p>
-          <p><a href="#" aria-label="More about Chartered Manager">More &raquo;</a></p>
-        </article>
-
-        <article class="card" aria-labelledby="course-health">
-          <img src="https://www.leedsbeckett.ac.uk/-/media/images/courses/header-images/school-of-health-and-community-studies/adult-nursing-bsc_87212.jpg?optimization=true&mw=640&hash=C0321193C40AAAA65C44B1BB33DA0799" alt="School of Health">
-          <h3 id="course-health">School of Health</h3>
-          <hr>
-          <p class="muted">Blend clinical practice with university teaching to achieve professional registration and a degree.</p>
-          <p><a href="#" aria-label="More about Nursing Apprenticeships">More &raquo;</a></p>
-        </article>
+        {% endfor %}
       </div>
     </div>
 
