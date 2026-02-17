@@ -17,7 +17,7 @@ def submit_enquiry(request):
         enquiry = Enquiry(name=name, email=email, role=role, message=message)
         enquiry.save()
 
-        return HttpResponse("Thanks! Your enquiry has been submitted.")
+        return HttpResponse("Thanks! Your enquiry has been submitted. <a href='/'>Return to home</a>")
 
     # Optional: redirect if someone visits /submit-enquiry via GET
     return redirect("home")
