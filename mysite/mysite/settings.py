@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
 # Application definition
 
 INSTALLED_APPS = [
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -116,3 +117,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+JAZZMIN_SETTINGS = {
+    "site_title": "LBU Admin",
+    "site_header": "Leeds Beckett University",
+    "site_brand": "Degree Apprenticeships",
+    "welcome_sign": "Welcome to the admin",
+    "custom_css": "main/admin-jazzmin.css",
+}
