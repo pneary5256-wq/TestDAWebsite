@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ school.name }} | Degree Apprenticeships</title>
-  <meta name="description" content="Explore courses in {{ school.name }} at Leeds Beckett University." />
+  <title>{{ course.title }} | Degree Apprenticeships</title>
+  <meta name="description" content="{{ course.description|truncatechars:160 }}" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,26 +25,20 @@
     .nav-list a{font-family:"Barlow",sans-serif !important;}
     a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-family:"Barlow",sans-serif !important;}
     .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
-    .hero .hero-copy{flex:1}
-    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;}
-    .hero p.lead{color:var(--muted);margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-    .card{background:#753BBD;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);color:#fff}
-    .card img{width:100%;height:200px;object-fit:cover;border-radius:4px;margin-bottom:0.75rem}
-    .card h3{font-size:0.95rem;line-height:1.25;margin-top:0;margin-bottom:0.75rem;color:#fff;font-family:"Barlow",sans-serif !important;}
-    .card h4{color:#fff;font-family:"Barlow",sans-serif !important;}
-    .card .muted{color:#fff;font-family:"Barlow",sans-serif !important;}
-    .card a{color:#fff;font-family:"Barlow",sans-serif !important;}
-    .cta-row{display:flex;gap:.75rem;align-items:center}
-    .how-it-works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
-    .testimonials{background:#fff;padding:1.25rem;border-radius:8px}
-    footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
+    .hero .hero-copy{flex:1;background:var(--accent);padding:1.5rem;border-radius:8px}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;color:#fff;}
+    .hero p.lead{color:#fff;margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
+    .hero img{width:100%;max-width:360px;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(9,30,66,0.08)}
+    .details{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .detail-card{background:var(--accent);border-radius:8px;padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .detail-card h3{margin:0 0 .35rem;font-size:1rem;color:#fff}
+    .detail-card p{margin:0;color:#fff}
     .muted{color:var(--muted);font-family:"Barlow",sans-serif !important;}
     p,li,span,div,a,label{font-family:"Barlow",sans-serif !important;}
-    form input,form textarea,form select,button{width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px;font-family:"Barlow",sans-serif !important;}
-    * { font-family: "Barlow", sans-serif !important; }
-    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:1rem}
-    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+    .modules{margin-top:1.5rem}
+    .modules ol{padding-left:1.25rem}
+    .modules li{margin:.35rem 0}
+    footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
   </style>
 </head>
 <body>
@@ -60,7 +54,7 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="/">Home</a></li>
-          <li><a href="#courses">Courses</a></li>
+          <li><a href="{% url 'school_detail' school.slug %}">Back to {{ school.name }}</a></li>
         </ul>
       </nav>
     </div>
@@ -69,26 +63,56 @@
   <main>
     <div class="container hero" role="main">
       <div class="hero-copy">
-        <h1>{{ school.name }}</h1>
-        <p class="lead">{{ school.description }}</p>
+        <h1>{{ course.title }}</h1>
+        <p class="lead">{{ course.description }}</p>
+      </div>
+      {% if course.image_url %}
+      <div>
+        <img src="{{ course.image_url }}" alt="{{ course.title }}" />
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="container">
+      <div class="details">
+        <div class="detail-card">
+          <h3>Attendance</h3>
+          <p>{{ course.get_attendance_display }}</p>
+        </div>
+        <div class="detail-card">
+          <h3>Duration</h3>
+          <p>{{ course.duration|default:"TBC" }}</p>
+        </div>
+        <div class="detail-card">
+          <h3>Location</h3>
+          <p>{{ course.get_location_display|default:"TBC" }}</p>
+        </div>
+        <div class="detail-card">
+          <h3>Cost</h3>
+          <p>{{ course.cost|default:"TBC" }}</p>
+        </div>
       </div>
     </div>
 
-    <div class="container" id="courses" style="padding-top:1.5rem">
-      <h2>Courses</h2>
-      <div class="cards">
-        {% for course in courses %}
-        <article class="card">
-          {% if course.image_url %}
-          <img src="{{ course.image_url }}" alt="{{ course.title }}">
-          {% endif %}
-          <h3><a href="{% url 'course_detail' school.slug course.slug %}">{{ course.title }}</a></h3>
-          <p class="muted">{{ course.description }}</p>
-        </article>
-        {% empty %}
-        <p>No courses available yet.</p>
+    <div class="container">
+      <h2>Entry Requirements</h2>
+      <p class="muted">{{ course.entry_requirements|linebreaksbr|default:"Details coming soon." }}</p>
+    </div>
+
+    <div class="container modules">
+      <h2>Modules</h2>
+      {% if modules_by_level %}
+      {% for group in modules_by_level %}
+      <h3>{{ group.label }}</h3>
+      <ol>
+        {% for module in group.modules %}
+        <li><strong>{{ module.title }}</strong>{% if module.description %} — {{ module.description }}{% endif %}</li>
         {% endfor %}
-      </div>
+      </ol>
+      {% endfor %}
+      {% else %}
+      <p class="muted">Modules will be published soon.</p>
+      {% endif %}
     </div>
   </main>
 

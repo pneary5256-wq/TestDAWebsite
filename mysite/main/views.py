@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from .models import Enquiry, School, Course  # we'll create this model
+from .models import Enquiry, School, Course, Module  # we'll create this model
 from django.shortcuts import render
 
 def home(request):
@@ -27,3 +27,28 @@ def school_detail(request, slug):
     school = get_object_or_404(School, slug=slug)
     courses = school.courses.all()
     return render(request, 'main/school_detail.html', {'school': school, 'courses': courses})
+
+
+def course_detail(request, school_slug, course_slug):
+    school = get_object_or_404(School, slug=school_slug)
+    course = get_object_or_404(Course, slug=course_slug, school=school)
+    modules = course.modules.all()
+    level_order = [
+        ('4', 'Level 4'),
+        ('5', 'Level 5'),
+        ('6', 'Level 6'),
+        ('7', 'Level 7'),
+    ]
+    modules_by_level = []
+    for level_value, level_label in level_order:
+        level_modules = modules.filter(level=level_value)
+        if level_modules.exists():
+            modules_by_level.append({
+                'label': level_label,
+                'modules': level_modules,
+            })
+    return render(request, 'main/course_detail.html', {
+        'school': school,
+        'course': course,
+        'modules_by_level': modules_by_level
+    })
