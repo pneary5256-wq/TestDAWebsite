@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap");
+
 :root {
   /* Brand palette */
   --brand-purple: #753BBD; /* RGB(117,59,189) */
@@ -10,19 +12,20 @@
   --container: 1100px;
   --radius: 8px;
   --focus: 3px rgba(0,0,0,0.18);
-  font-family: "Segoe UI", sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 /* Font imports */
 
-*{box-sizing:border-box}
-html,body{height:100%}
+*, *::before, *::after{box-sizing:border-box;font-family: "Barlow", sans-serif !important;}
+html,body{height:100%;font-family: "Barlow", sans-serif !important;}
 body{
   margin:0;
   background:var(--bg); /* pure white main background */
   color:var(--trim-dark); /* all other text black */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
+  font-family: "Barlow", sans-serif !important;
 }
 .container{max-width:var(--container);margin:0 auto;padding:1rem}
 
@@ -34,17 +37,19 @@ body{
 }
 .brand{display:flex;align-items:center;gap:.75rem}
 .brand img{height:52px;width:auto;display:block}
-.brand strong{font-weight:700;color:var(--trim-light)}
+.brand strong{font-weight:700;color:var(--trim-light);font-family: "Barlow", sans-serif !important;}
+.brand small{font-family: "Barlow", sans-serif !important;}
+.brand div{font-family: "Barlow", sans-serif !important;}
 .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
 .nav-list a{
   color:var(--trim-light); /* white links in header */
-  text-decoration:none;padding:.35rem .5rem;border-radius:6px
+  text-decoration:none;padding:.35rem .5rem;border-radius:6px;font-family: "Barlow", sans-serif !important;
 }
 .nav-list a:hover{background:rgba(255,255,255,0.06)}
 
 a.button{
   background:var(--trim-dark); /* other bits black */
-  color:var(--trim-light);padding:.6rem 1rem;border-radius:8px;text-decoration:none;display:inline-block
+  color:var(--trim-light);padding:.6rem 1rem;border-radius:8px;text-decoration:none;display:inline-block;font-family: "Barlow", sans-serif !important;
 }
 a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 
@@ -52,7 +57,7 @@ a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
 .hero-copy h1{
   font-size:clamp(1.6rem,2.6vw,2.6rem);
-  margin:0 0 .5rem;font-family:"Segoe UI",sans-serif;
+  margin:0 0 .5rem;font-family:"Barlow",sans-serif;
   color:var(--trim-dark); /* headings outside header are black */
 }
 .lead{color:var(--muted);margin:0 0 1rem}
@@ -71,8 +76,8 @@ a.button:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 
 /* Form */
 form{margin-top:1rem}
-input[type="text"],input[type="email"],select,textarea{
-  width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px;font-family:inherit
+input[type="text"],input[type="email"],select,textarea,button{
+  width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px;font-family: "Barlow", sans-serif !important;
 }
 input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 0 0 var(--focus)}
 
@@ -94,8 +99,14 @@ footer{
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* Small tweaks to match tone */
-h1,.card h3{letter-spacing:-0.01em}
+h1,h2,h3,h4,h5,h6,.card h3{letter-spacing:-0.01em;font-family: "Barlow", sans-serif !important;}
+p,span,div,a,li,label,strong,small,blockquote,ul,ol{font-family: "Barlow", sans-serif !important;}
 
 /* Make focus visible for keyboard users */
 :focus{outline:none}
 :focus-visible{outline:3px solid rgba(0,0,0,0.28);outline-offset:2px}
+
+/* Final font override for everything */
+* {
+  font-family: "Barlow", sans-serif !important;
+}

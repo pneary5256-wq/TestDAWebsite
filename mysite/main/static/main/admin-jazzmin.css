@@ -1,12 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap");
+
 :root {
   --admin-purple: #753BBD;
   --admin-black: #000000;
   --admin-white: #ffffff;
 }
 
+*, *::before, *::after {
+  font-family: "Barlow", sans-serif !important;
+}
+
 body {
   background: var(--admin-white);
   color: var(--admin-black);
+  font-family: "Barlow", sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, a, li, label, button, input, select, textarea, th, td, small, strong, em, blockquote, ul, ol {
+  font-family: "Barlow", sans-serif !important;
 }
 
 .content-wrapper,

@@ -6,34 +6,43 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Degree Apprenticeships | Leeds Beckett University</title>
   <meta name="description" content="Advance your career with Degree Apprenticeships at Leeds Beckett University — learn on the job, earn a salary, and gain a degree. Courses for learners and employer partnerships." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'main/styles.css' %}" />
   <style>
-    :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Segoe UI", sans-serif; color:#fcfcfc00; }
-    body{margin:0;background:var(--bg);line-height:1.45}
+    * { font-family: "Barlow", sans-serif !important; }
+    :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Barlow", sans-serif; color:#fcfcfc00; }
+    body{margin:0;background:var(--bg);line-height:1.45;font-family: "Barlow", sans-serif !important;}
     .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
+    h1,h2,h3,h4,h5,h6{font-family:"Barlow",sans-serif !important;}
     .container{max-width:var(--container);margin:0 auto;padding:1rem}
     .brand{display:flex;align-items:center;gap:.75rem}
+    .brand strong,.brand small,.brand div{font-family:"Barlow",sans-serif !important;}
     .brand img{height:48px;width:auto}
     nav{margin-left:auto}
     .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
-    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none}
+    .nav-list a{font-family:"Barlow",sans-serif !important;}
+    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-family:"Barlow",sans-serif !important;}
     .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
     .hero .hero-copy{flex:1}
-    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem)}
-    .hero p.lead{color:var(--muted);margin:0 0 1rem}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;}
+    .hero p.lead{color:var(--muted);margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
     .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
     .card{background:#753BBD;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);color:#fff}
     .card img{width:100%;height:200px;object-fit:cover;border-radius:4px;margin-bottom:0.75rem}
-    .card h3{font-size:0.95rem;line-height:1.25;margin-top:0;margin-bottom:0.75rem;color:#fff}
-    .card h4{color:#fff}
-    .card .muted{color:#fff}
-    .card a{color:#fff}
+    .card h3{font-size:0.95rem;line-height:1.25;margin-top:0;margin-bottom:0.75rem;color:#fff;font-family:"Barlow",sans-serif !important;}
+    .card h4{color:#fff;font-family:"Barlow",sans-serif !important;}
+    .card .muted{color:#fff;font-family:"Barlow",sans-serif !important;}
+    .card a{color:#fff;font-family:"Barlow",sans-serif !important;}
     .cta-row{display:flex;gap:.75rem;align-items:center}
     .how-it-works{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
     .testimonials{background:#fff;padding:1.25rem;border-radius:8px}
     footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
-    .muted{color:var(--muted)}
-    form input,form textarea,form select{width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px}
+    .muted{color:var(--muted);font-family:"Barlow",sans-serif !important;}
+    p,li,span,div,a,label{font-family:"Barlow",sans-serif !important;}
+    form input,form textarea,form select,button{width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px;font-family:"Barlow",sans-serif !important;}
+    * { font-family: "Barlow", sans-serif !important; }
     .grid-2{display:grid;grid-template-columns:1fr 320px;gap:1rem}
     @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
   </style>
