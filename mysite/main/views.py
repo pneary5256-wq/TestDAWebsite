@@ -52,3 +52,6 @@ def course_detail(request, school_slug, course_slug):
         'course': course,
         'modules_by_level': modules_by_level
     })
+
+def apprenticeships(request):
+    return render(request, 'main/apprenticeships.html')

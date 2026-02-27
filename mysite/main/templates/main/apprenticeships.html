@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Find Apprenticeship Opportunities | Degree Apprenticeships</title>
+  <meta name="description" content="Explore current apprenticeship opportunities from the government's find an apprenticeship database and other employers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/styles.css' %}" />
+  <style>
+    * { font-family: "Barlow", sans-serif !important; }
+    :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Barlow", sans-serif; color:#fcfcfc00; }
+    body{margin:0;background:var(--bg);line-height:1.45;font-family: "Barlow", sans-serif !important;}
+    .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
+    h1,h2,h3,h4,h5,h6{font-family:"Barlow",sans-serif !important;}
+    .container{max-width:var(--container);margin:0 auto;padding:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand strong,.brand small,.brand div{font-family:"Barlow",sans-serif !important;}
+    .brand img{height:48px;width:auto}
+    nav{margin-left:auto}
+    .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+    .nav-list a{font-family:"Barlow",sans-serif !important;}
+    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-family:"Barlow",sans-serif !important;}
+    .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
+    .hero .hero-copy{flex:1;background:var(--accent);padding:1.5rem;border-radius:8px}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;color:#fff;}
+    .hero p.lead{color:#fff;margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
+    .details{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .detail-card{background:var(--accent);border-radius:8px;padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .detail-card h3{margin:0 0 .35rem;font-size:1rem;color:#fff}
+    .detail-card p{margin:0;color:#fff}
+    .muted{color:var(--muted);font-family:"Barlow",sans-serif !important;}
+    p,li,span,div,a,label{font-family:"Barlow",sans-serif !important;}
+    .opportunities{margin-top:1.5rem;padding:2rem;background:#f5f5f5;border-radius:8px;text-align:center}
+    .opportunities h2{margin-top:0;color:var(--accent)}
+    footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;gap:1rem">
+      <div class="brand" aria-label="Leeds Beckett University brand">
+        <img src="https://www.leedsbeckett.ac.uk/-/media/images/global-asset-bank/logos/gaa-lbu-logo-transcript.svg?optimization=true&mw=320&hash=124E1E42821FB9673A8CA0C7730F0C59" alt="Leeds Beckett University logo" />
+        <div>
+          <strong>Leeds Beckett University</strong><br /><small class="muted">Degree Apprenticeships</small>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'apprenticeships' %}">Apprenticeship Opportunities</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" role="main">
+      <div class="hero-copy">
+        <h1>Apprenticeship Opportunities</h1>
+        <p class="lead">Discover current apprenticeship vacancies from leading employers and training providers. Find roles that match your skills and career goals.</p>
+      </div>
+    </div>
+
+    <div class="container opportunities">
+      <h2>Current Opportunities</h2>
+      <p class="muted">Apprenticeship opportunities from the government's Find an Apprenticeship database and partner employers will appear here.</p>
+      <p style="margin-top:2rem">
+        <a href="https://www.findapprenticeship.service.gov.uk/" target="_blank" class="button" aria-label="Visit Find an Apprenticeship (opens in new tab)">Search on Find an Apprenticeship</a>
+      </p>
+    </div>
+
+    <div class="container">
+      <h2>About Degree Apprenticeships</h2>
+      <p class="muted">Degree Apprenticeships combine paid work with a degree-level qualification. Unlike traditional apprenticeships, you'll earn a full degree while employed and earning a salary. This path is ideal for those who want to combine practical experience with academic learning.</p>
+      
+      <h3>Next Steps</h3>
+      <p class="muted">Once you've found an opportunity that interests you, <a href="/#contact" style="color:var(--accent);text-decoration:underline">get in touch with our team</a> to discuss how we can support your apprenticeship journey.</p>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <strong>Leeds Beckett University</strong>
+        <p class="muted" style="max-width:36ch">Degree Apprenticeships team — supporting learners and employers across Yorkshire and beyond.</p>
+      </div>
+
+      <div style="min-width:220px">
+        <nav aria-label="Footer">
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
+            <li><a href="#" style="color:#fff;text-decoration:underline">Privacy & cookies</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Terms of use</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Accessibility</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
