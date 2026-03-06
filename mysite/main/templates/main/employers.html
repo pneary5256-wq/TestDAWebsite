@@ -1,0 +1,315 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>For Employers | Degree Apprenticeships</title>
+  <meta name="description" content="Information for employers about partnering with Leeds Beckett University on Degree Apprenticeships, including funding guidance and workforce planning support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/styles.css' %}" />
+  <style>
+    * { font-family: "Barlow", sans-serif !important; }
+    :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Barlow", sans-serif; color:#fcfcfc00; }
+    body{margin:0;background:var(--bg);line-height:1.45;font-family: "Barlow", sans-serif !important;}
+    .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
+    h1,h2,h3,h4,h5,h6{font-family:"Barlow",sans-serif !important;}
+    .container{max-width:var(--container);margin:0 auto;padding:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand strong,.brand small,.brand div{font-family:"Barlow",sans-serif !important;}
+    .brand img{height:48px;width:auto}
+    nav{margin-left:auto}
+    .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+    .nav-list a{font-family:"Barlow",sans-serif !important;}
+    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-family:"Barlow",sans-serif !important;}
+    .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
+    .hero .hero-copy{flex:1;background:var(--accent);padding:1.5rem;border-radius:8px}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;color:#fff;}
+    .hero p.lead{color:#fff;margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
+    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:1rem}
+    .card{background:#753BBD;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);color:#fff}
+    .card h3,.card h4{color:#fff;font-family:"Barlow",sans-serif !important;}
+    .card p,.card li,.card a{color:#fff;font-family:"Barlow",sans-serif !important;}
+    .testimonials{background:#fff;padding:1.25rem;border-radius:8px}
+    .testimonials h3{color:#000}
+    .testimonials p{color:#000}
+    .testimonials .muted{color:#000}
+    .calculator-box{margin-top:1.5rem;padding:1.25rem;border:2px solid #753BBD;border-radius:8px;background:#f8f5fc}
+    .calculator-box h3{margin-top:0;color:#753BBD}
+    .calculator-box label{display:block;font-weight:600;color:#000;margin-bottom:.35rem}
+    .calculator-box select,.calculator-box input,.calculator-box button{width:100%;padding:.6rem;border:1px solid #d7dbe0;border-radius:6px;font-size:1rem}
+    .calculator-box button{margin-top:.25rem;background:#753BBD;color:#fff;border:none;cursor:pointer}
+    .calculator-box button:hover{opacity:.95}
+    .calculator-controls{display:flex;gap:.6rem;align-items:flex-end;margin-bottom:.85rem}
+    .course-row{padding:.8rem;background:#fff;border:1px solid #e6e9ee;border-radius:6px;margin-top:.7rem}
+    .course-row-grid{display:grid;grid-template-columns:2fr 1fr auto;gap:.6rem;align-items:end}
+    .secondary-button{background:#fff !important;color:#753BBD !important;border:1px solid #753BBD !important}
+    .remove-row-btn{width:auto !important;padding:.55rem .85rem !important}
+    .calculator-result{margin-top:1rem;background:#fff;padding:1rem;border-radius:6px;border:1px solid #e6e9ee;color:#000}
+    .calculator-result p{margin:.4rem 0}
+    .muted{color:var(--muted);font-family:"Barlow",sans-serif !important;}
+    p,li,span,div,a,label{font-family:"Barlow",sans-serif !important;}
+    footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
+    @media (max-width:880px){.grid-2{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;gap:1rem">
+      <div class="brand" aria-label="Leeds Beckett University brand">
+        <img src="https://www.leedsbeckett.ac.uk/-/media/images/global-asset-bank/logos/gaa-lbu-logo-transcript.svg?optimization=true&mw=320&hash=124E1E42821FB9673A8CA0C7730F0C59" alt="Leeds Beckett University logo" />
+        <div>
+          <strong>Leeds Beckett University</strong><br /><small class="muted">Degree Apprenticeships</small>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'apprenticeships' %}">Find Opportunities</a></li>
+          <li><a href="{% url 'employers' %}">For employers</a></li>
+          <li><a href="/#contact" class="button">Enquire now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" role="main">
+      <div class="hero-copy">
+        <h1>For Employers</h1>
+        <p class="lead">Build skills in your workforce with Degree Apprenticeships designed around real business needs.</p>
+      </div>
+    </div>
+
+    <div class="container" style="padding-top:1rem">
+      <h2>Employer Partnerships</h2>
+      <div class="grid-2">
+        <div>
+          <p class="muted">Partner with Leeds Beckett to develop a skilled workforce tailored to your business. We work with employers of all sizes to design apprenticeship training, share assessment plans and support workplace mentors.</p>
+          <ul>
+            <li>Flexible delivery to fit business needs</li>
+            <li>Support with funding and levy transfers</li>
+            <li>Access to university research and facilities</li>
+          </ul>
+
+          <p><a href="/#contact" class="button">Discuss partnerships</a></p>
+
+          <section class="calculator-box" aria-labelledby="calculator-heading">
+            <h3 id="calculator-heading">How much will my company pay?</h3>
+            <p class="muted">Estimate likely employer and government contributions based on your wage bill, selected courses and number of applicants.</p>
+
+            <label for="wageBill">Is your annual wage bill over £3,000,000?</label>
+            <select id="wageBill" aria-label="Annual wage bill over three million pounds">
+              <option value="no">No</option>
+              <option value="yes">Yes</option>
+            </select>
+
+            <label>Apprenticeship selections</label>
+            <div id="courseRows">
+              <div class="course-row">
+                <div class="course-row-grid">
+                  <div>
+                    <label for="courseCost-1">Course</label>
+                    <select id="courseCost-1" class="course-cost" aria-label="Select course for cost">
+                      <option value="">Choose a course</option>
+                      {% for course_option in course_options %}
+                      <option value="{{ course_option.numeric_cost|default:'' }}" data-display-cost="{{ course_option.display_cost }}">
+                        {{ course_option.title }} ({{ course_option.school }}) - {{ course_option.display_cost }}
+                      </option>
+                      {% endfor %}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label for="applicantCount-1">Applicants</label>
+                    <input id="applicantCount-1" class="applicant-count" type="number" min="1" step="1" value="1" />
+                  </div>
+
+                  <button type="button" class="remove-row-btn secondary-button" onclick="removeCourseRow(this)" style="display:none;">Remove</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="calculator-controls">
+              <button type="button" class="secondary-button" onclick="addCourseRow()">Add another apprenticeship</button>
+            </div>
+
+            <button type="button" onclick="calculateCost()">Calculate</button>
+
+            <div class="calculator-result" id="calculatorResult" aria-live="polite">
+              <p>Select one or more courses and calculate to see an estimate.</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="card testimonials" aria-labelledby="testimonials-heading">
+          <h3 id="testimonials-heading">What employers and apprentices say</h3>
+          <blockquote>
+            <p>"Our apprentice quickly became a key member of the team - the course content matched day-to-day work and supported professional development."</p>
+            <footer class="muted">- Employer partner, Leeds</footer>
+          </blockquote>
+
+          <blockquote style="margin-top:.75rem">
+            <p>"I earned while learning and could apply every module straight to my role. The university tutors were very supportive."</p>
+            <footer class="muted">- Degree Apprentice</footer>
+          </blockquote>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <strong>Leeds Beckett University</strong>
+        <p class="muted" style="max-width:36ch">Degree Apprenticeships team - supporting learners and employers across Yorkshire and beyond.</p>
+      </div>
+
+      <div style="min-width:220px">
+        <nav aria-label="Footer">
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
+            <li><a href="#" style="color:#fff;text-decoration:underline">Privacy & cookies</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Terms of use</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Accessibility</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function formatCurrency(value) {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency",
+        currency: "GBP",
+        minimumFractionDigits: 2,
+      }).format(value);
+    }
+
+    function calculateCost() {
+      const wageBill = document.getElementById("wageBill").value;
+      const resultDiv = document.getElementById("calculatorResult");
+      const courseRows = document.querySelectorAll("#courseRows .course-row");
+      let totalTrainingCost = 0;
+      let totalApplicants = 0;
+      const breakdown = [];
+
+      for (let index = 0; index < courseRows.length; index += 1) {
+        const row = courseRows[index];
+        const courseSelect = row.querySelector(".course-cost");
+        const applicantInput = row.querySelector(".applicant-count");
+        const selectedOption = courseSelect.options[courseSelect.selectedIndex];
+        const baseCost = parseFloat(courseSelect.value);
+        const applicantCount = parseInt(applicantInput.value, 10);
+
+        if (courseSelect.value === "") {
+          resultDiv.innerHTML = `<p>Please choose a course for row ${index + 1}.</p>`;
+          return;
+        }
+
+        if (Number.isNaN(baseCost) || baseCost <= 0) {
+          resultDiv.innerHTML = `<p>The selected course in row ${index + 1} does not have a valid cost in admin.</p>`;
+          return;
+        }
+
+        if (Number.isNaN(applicantCount) || applicantCount < 1) {
+          resultDiv.innerHTML = `<p>Please enter at least 1 applicant for row ${index + 1}.</p>`;
+          return;
+        }
+
+        const lineCost = baseCost * applicantCount;
+        const courseName = selectedOption ? selectedOption.textContent.trim() : "Selected course";
+        breakdown.push(`<p>${courseName} x ${applicantCount} = ${formatCurrency(lineCost)}</p>`);
+        totalTrainingCost += lineCost;
+        totalApplicants += applicantCount;
+      }
+
+      const breakdownHtml = breakdown.join("");
+
+      if (wageBill === "yes") {
+        const fallbackContribution = totalTrainingCost * 0.05;
+        resultDiv.innerHTML = `
+          <p><strong>Levy-paying employer</strong></p>
+          <p><strong>Total applicants:</strong> ${totalApplicants}</p>
+          <p><strong>Total selected training cost:</strong> ${formatCurrency(totalTrainingCost)}</p>
+          ${breakdownHtml}
+          <p>Your apprenticeship training is normally paid from your apprenticeship levy account.</p>
+          <p>If levy funds are exhausted, your indicative contribution at 5% would be <strong>${formatCurrency(fallbackContribution)}</strong>.</p>
+        `;
+        return;
+      }
+
+      const employerContribution = totalTrainingCost * 0.05;
+      const governmentContribution = totalTrainingCost * 0.95;
+
+      resultDiv.innerHTML = `
+        <p><strong>Total applicants:</strong> ${totalApplicants}</p>
+        <p><strong>Total selected training cost:</strong> ${formatCurrency(totalTrainingCost)}</p>
+        ${breakdownHtml}
+        <p><strong>Employer contribution:</strong> ${formatCurrency(employerContribution)}</p>
+        <p><strong>Government contribution:</strong> ${formatCurrency(governmentContribution)}</p>
+      `;
+    }
+
+    function addCourseRow() {
+      const courseRows = document.getElementById("courseRows");
+      const firstRow = courseRows.querySelector(".course-row");
+      const newRow = firstRow.cloneNode(true);
+
+      const select = newRow.querySelector(".course-cost");
+      const input = newRow.querySelector(".applicant-count");
+      const removeBtn = newRow.querySelector(".remove-row-btn");
+
+      select.selectedIndex = 0;
+      input.value = "1";
+      removeBtn.style.display = "inline-block";
+
+      const nextIndex = courseRows.querySelectorAll(".course-row").length + 1;
+      select.id = `courseCost-${nextIndex}`;
+      input.id = `applicantCount-${nextIndex}`;
+      select.previousElementSibling.setAttribute("for", select.id);
+      input.previousElementSibling.setAttribute("for", input.id);
+
+      courseRows.appendChild(newRow);
+      updateRemoveButtons();
+    }
+
+    function removeCourseRow(button) {
+      const row = button.closest(".course-row");
+      if (!row) {
+        return;
+      }
+
+      const courseRows = document.getElementById("courseRows");
+      if (courseRows.querySelectorAll(".course-row").length <= 1) {
+        return;
+      }
+
+      row.remove();
+      updateRemoveButtons();
+    }
+
+    function updateRemoveButtons() {
+      const rows = document.querySelectorAll("#courseRows .course-row");
+      rows.forEach((row, index) => {
+        const removeBtn = row.querySelector(".remove-row-btn");
+        removeBtn.style.display = rows.length > 1 ? "inline-block" : "none";
+
+        const select = row.querySelector(".course-cost");
+        const input = row.querySelector(".applicant-count");
+        const selectLabel = select.previousElementSibling;
+        const inputLabel = input.previousElementSibling;
+
+        const newIndex = index + 1;
+        select.id = `courseCost-${newIndex}`;
+        input.id = `applicantCount-${newIndex}`;
+        selectLabel.setAttribute("for", select.id);
+        inputLabel.setAttribute("for", input.id);
+      });
+    }
+  </script>
+</body>
+</html>

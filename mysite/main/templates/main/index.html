@@ -62,7 +62,7 @@
           <li><a href="#apprenticeships">Apprenticeships</a></li>
           <li><a href="{% url 'apprenticeships' %}">Find Opportunities</a></li>
           <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#employers">For employers</a></li>
+          <li><a href="{% url 'employers' %}">For employers</a></li>
           <li><a href="#contact" class="button">Enquire now</a></li>
         </ul>
       </nav>
@@ -137,6 +137,7 @@
 
     <div class="container" id="employers" style="padding-top:1.5rem">
       <h2>For employers</h2>
+      <p><a href="{% url 'employers' %}" class="button">Visit employer page</a></p>
       <div class="grid-2">
         <div>
           <p class="muted">Partner with Leeds Beckett to develop a skilled workforce tailored to your business. We work with employers of all sizes to design apprenticeship training, share assessment plans and support workplace mentors.</p>

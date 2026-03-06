@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from .models import Enquiry, School, Course, Module  # we'll create this model
-from django.shortcuts import render
+import re
 
 def home(request):
     schools = School.objects.all()
@@ -55,3 +55,31 @@ def course_detail(request, school_slug, course_slug):
 
 def apprenticeships(request):
     return render(request, 'main/apprenticeships.html')
+
+
+def employers(request):
+    course_options = []
+    courses = Course.objects.select_related('school').all().order_by('school__name', 'title')
+
+    for course in courses:
+        raw_cost = (course.cost or '').strip()
+        numeric_cost = None
+
+        if raw_cost:
+            cleaned = raw_cost.replace(',', '')
+            # Pull the first numeric amount from values like "£9,250 per year".
+            match = re.search(r'(\d+(?:\.\d+)?)', cleaned)
+            if match:
+                try:
+                    numeric_cost = float(match.group(1))
+                except ValueError:
+                    numeric_cost = None
+
+        course_options.append({
+            'title': course.title,
+            'school': course.school.name,
+            'display_cost': raw_cost or 'Not set',
+            'numeric_cost': numeric_cost,
+        })
+
+    return render(request, 'main/employers.html', {'course_options': course_options})
