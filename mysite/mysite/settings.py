@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -125,3 +126,9 @@ JAZZMIN_SETTINGS = {
     "welcome_sign": "Welcome to the admin",
     "custom_css": "main/admin-jazzmin.css",
 }
+
+
+# Government Display Advert API configuration.
+DISPLAY_ADVERT_API_BASE_URL = "https://api.apprenticeships.education.gov.uk/vacancies"
+DISPLAY_ADVERT_API_VERSION = "2"
+DISPLAY_ADVERT_API_KEY = os.getenv("DISPLAY_ADVERT_API_KEY", "f3914dbd0ddc429d9bfee29890bfb166")

@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Live Vacancies | Degree Apprenticeships</title>
+  <meta name="description" content="Live Degree Apprenticeship vacancies from the UK Government listings." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'main/styles.css' %}" />
+  <style>
+    * { font-family: "Barlow", sans-serif !important; }
+    :root { --accent:#753BBD; --muted:#000000; --bg:#ffffff00; --container:1100px; font-family: "Barlow", sans-serif; color:#fcfcfc00; }
+    body{margin:0;background:var(--bg);line-height:1.45;font-family: "Barlow", sans-serif !important;}
+    .site-header{background:#fff;border-bottom:1px solid #e6e9ee}
+    h1,h2,h3,h4,h5,h6{font-family:"Barlow",sans-serif !important;}
+    .container{max-width:var(--container);margin:0 auto;padding:1rem}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand strong,.brand small,.brand div{font-family:"Barlow",sans-serif !important;}
+    .brand img{height:48px;width:auto}
+    nav{margin-left:auto}
+    .nav-list{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+    .nav-list a{font-family:"Barlow",sans-serif !important;}
+    a.button{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:6px;text-decoration:none;font-family:"Barlow",sans-serif !important;}
+    .hero{display:flex;gap:2rem;align-items:center;padding:2.5rem 0}
+    .hero .hero-copy{flex:1;background:var(--accent);padding:1.5rem;border-radius:8px}
+    .hero h1{margin:0 0 .5rem;font-size:clamp(1.5rem,2.6vw,2.4rem);font-family:"Barlow",sans-serif !important;color:#fff;}
+    .hero p.lead{color:#fff;margin:0 0 1rem;font-family:"Barlow",sans-serif !important;}
+    .panel{background:#f8f5fc;border:2px dashed #753BBD;border-radius:8px;padding:1.25rem;margin-top:1.25rem}
+    .panel h2{margin-top:0;color:#753BBD}
+    .vacancy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:1rem}
+    .vacancy-card{background:#fff;border:1px solid #e6e9ee;border-radius:8px;padding:1rem;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .vacancy-card h3{margin-top:0;margin-bottom:.5rem;color:#753BBD}
+    .vacancy-card p{margin:.3rem 0;color:#000}
+    .pagination{display:flex;gap:.75rem;align-items:center;justify-content:center;margin-top:1.25rem}
+    .status-error{background:#fff0f0;border:1px solid #f2b8b8;color:#8a1f1f;padding:.9rem;border-radius:6px}
+    .status-empty{background:#fff;border:1px solid #e6e9ee;color:#000;padding:.9rem;border-radius:6px}
+    .muted{color:var(--muted);font-family:"Barlow",sans-serif !important;}
+    p,li,span,div,a,label{font-family:"Barlow",sans-serif !important;}
+    footer{background:#000000;color:#fff;padding:1.5rem 0;margin-top:2rem}
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container" style="display:flex;align-items:center;gap:1rem">
+      <div class="brand" aria-label="Leeds Beckett University brand">
+        <img src="https://www.leedsbeckett.ac.uk/-/media/images/global-asset-bank/logos/gaa-lbu-logo-transcript.svg?optimization=true&mw=320&hash=124E1E42821FB9673A8CA0C7730F0C59" alt="Leeds Beckett University logo" />
+        <div>
+          <strong>Leeds Beckett University</strong><br /><small class="muted">Degree Apprenticeships</small>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'live_vacancies' %}">Live Vacancies</a></li>
+          <li><a href="{% url 'apprenticeships' %}">Find Opportunities</a></li>
+          <li><a href="{% url 'employers' %}">For employers</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" role="main">
+      <div class="hero-copy">
+        <h1>Live Vacancies</h1>
+        <p class="lead">Current apprenticeship vacancies will appear here from the UK Government listings. Please note that not all these apprenticeships will be delivered by Leeds Beckett University</p>
+      </div>
+    </div>
+
+    <div class="container panel">
+      <h2>Current Government Listings</h2>
+      <p class="muted">Showing live apprenticeship vacancies from the Government Display Advert API.</p>
+
+      {% if api_error %}
+      <div class="status-error">
+        <strong>Live vacancies unavailable:</strong> {{ api_error }}
+      </div>
+      {% elif vacancy_cards %}
+      <div class="vacancy-grid">
+        {% for vacancy in vacancy_cards %}
+        <article class="vacancy-card">
+          <h3>{{ vacancy.title }}</h3>
+          <p><strong>Employer:</strong> {{ vacancy.employer }}</p>
+          <p><strong>Course:</strong> {{ vacancy.course }}</p>
+          <p><strong>Positions:</strong> {{ vacancy.positions }}</p>
+          <p><strong>Wage:</strong> {{ vacancy.wage }}</p>
+          <p><strong>Location:</strong> {{ vacancy.location }}</p>
+          {% if vacancy.closing_date %}<p><strong>Closing date:</strong> {{ vacancy.closing_date }}</p>{% endif %}
+          {% if vacancy.start_date %}<p><strong>Start date:</strong> {{ vacancy.start_date }}</p>{% endif %}
+          {% if vacancy.vacancy_url %}
+          <p style="margin-top:.8rem"><a class="button" href="{{ vacancy.vacancy_url }}" target="_blank" rel="noopener noreferrer">View vacancy</a></p>
+          {% endif %}
+        </article>
+        {% endfor %}
+      </div>
+
+      <div class="pagination">
+        {% if has_previous %}
+        <a class="button" href="?page={{ previous_page }}">Previous</a>
+        {% endif %}
+        <span class="muted">Page {{ page_number }} of {{ total_pages }}</span>
+        {% if has_next %}
+        <a class="button" href="?page={{ next_page }}">Next</a>
+        {% endif %}
+      </div>
+      {% else %}
+      <div class="status-empty">No live vacancies were returned for this page.</div>
+      {% endif %}
+
+      <p style="margin-top:1rem"><a class="button" href="https://www.findapprenticeship.service.gov.uk/" target="_blank" rel="noopener noreferrer">Open Find an Apprenticeship</a></p>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container" style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;flex-wrap:wrap">
+      <div>
+        <strong>Leeds Beckett University</strong>
+        <p class="muted" style="max-width:36ch">Degree Apprenticeships team - supporting learners and employers across Yorkshire and beyond.</p>
+      </div>
+
+      <div style="min-width:220px">
+        <nav aria-label="Footer">
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:.5rem">
+            <li><a href="#" style="color:#fff;text-decoration:underline">Privacy & cookies</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Terms of use</a></li>
+            <li><a href="#" style="color:#fff;text-decoration:underline">Accessibility</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

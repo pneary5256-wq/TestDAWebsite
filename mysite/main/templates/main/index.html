@@ -60,6 +60,7 @@
       <nav aria-label="Primary">
         <ul class="nav-list">
           <li><a href="#apprenticeships">Apprenticeships</a></li>
+          <li><a href="{% url 'live_vacancies' %}">Live Vacancies</a></li>
           <li><a href="{% url 'apprenticeships' %}">Find Opportunities</a></li>
           <li><a href="#how-it-works">How it works</a></li>
           <li><a href="{% url 'employers' %}">For employers</a></li>
@@ -76,6 +77,7 @@
         <p class="lead">Combine paid work with university study to gain a full degree while earning — supported by experienced tutors and industry partners.</p>
         <div class="cta-row">
           <a href="#apprenticeships" class="button" aria-label="Find a course">Find a course</a>
+          <a href="{% url 'live_vacancies' %}" class="button" aria-label="View live apprenticeship vacancies">Live Vacancies</a>
           <a href="{% url 'apprenticeships' %}" class="button" aria-label="Find apprenticeship opportunities">Find Apprenticeship Opportunities</a>
           <a href="#contact" class="muted" style="text-decoration:underline">Request information</a>
         </div>
